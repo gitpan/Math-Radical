@@ -1,0 +1,61 @@
+Math/Radicals version 0.01
+==========================
+
+This Module is an interface to Mathamatic Radicals, also called Square Roots.
+Here's how it works:
+use Math::Radicals;
+$radical = Math::Radicals;
+$newVar = $radical->cube_root(54);
+$newVar2 = $radical->simp(54,3);
+print "$newVar is the cube root of 54. $newVar2 is it simplified";
+
+The output is:
+3.77976314968462 is the cube root of 54. 3 rad3(2) is it simplified  
+
+FUNCTIONS
+root(NUMBER[, ROOT_OF])
+ex. root(100, 10);
+will yield 1.58... which is the 10 root of 100 (1.58... to the power of 10). 
+Without ROOT_OF function, it defaults to 2, square rooting (perl's sqrt function
+will be faster for squaring.)
+
+cube_root(NUMBER[, ROOT_OF])
+ex. cube_root(54);
+will yield 3.77... which is the cubic root of 54 (3.77... to the power of 3).
+Same as root function, but will default to 3, cube rooting.
+
+factors(NUMBER);
+ex. factors(3)
+In scalar context is the number of factors in NUMBER. In array it is a list of
+numbers that are factors of NUMBER, from greatest to least.
+
+simp(NUMBER[, ROOT_OF])
+simp(54,3);
+will yield a string, "3 rad3(2)" which means 3 times cubic radical (rad3) of 2. 
+This will default to 2, for simplifing a square root. There is no number after
+rad for simplifing a square root, but for everything else in ROOT_OF is will say
+radROOT_OF.
+
+
+INSTALLATION
+
+To install this module type the following:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+DEPENDENCIES
+
+This module requires these other modules and libraries:
+
+  ExtUtils::MakeMaker
+
+COPYRIGHT AND LICENCE.
+
+Copyright (C) 2002 William Gunther
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself. 
+
